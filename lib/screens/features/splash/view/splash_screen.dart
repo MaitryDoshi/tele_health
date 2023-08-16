@@ -10,41 +10,36 @@ class SplashScreen extends StatefulWidget {
 
 class SplashScreenState extends State<SplashScreen> {
   final GlobalKey<ScaffoldState> _globalKey = GlobalKey();
-  late StreamSubscription<ConnectivityResult> _onConnectivityChanged;
+  bool isLoaded = false;
 
   @override
   void initState() {
     super.initState();
-
-    bool firstTime = true;
-    _onConnectivityChanged = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
-      if(!firstTime) {
-        bool isNotConnected = result != ConnectivityResult.wifi && result != ConnectivityResult.mobile;
-        isNotConnected ? const SizedBox() : ScaffoldMessenger.of(context).hideCurrentSnackBar();
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
-          backgroundColor: isNotConnected ? Colors.red : Colors.green,
-          duration: Duration(seconds: isNotConnected ? 6000 : 3),
-          content: Text(
-            isNotConnected ? 'no_connection'.tr : 'connected'.tr,
-            textAlign: TextAlign.center,
-          ),
-        ));
-        if(!isNotConnected) {
-          _route();
-        }
-      }
-      firstTime = false;
-    });
+    _navigateTo();
+    // bool firstTime = true;
+    // _onConnectivityChanged = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
+    //   if(!firstTime) {
+    //     bool isNotConnected = result != ConnectivityResult.wifi && result != ConnectivityResult.mobile;
+    //     isNotConnected ? const SizedBox() : ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    //     ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+    //       backgroundColor: isNotConnected ? Colors.red : Colors.green,
+    //       duration: Duration(seconds: isNotConnected ? 6000 : 3),
+    //       content: Text(
+    //         isNotConnected ? 'no_connection'.tr : 'connected'.tr,
+    //         textAlign: TextAlign.center,
+    //       ),
+    //     ));
+    //     if(!isNotConnected) {
+    //       _route();
+    //     }
+    //   }
+    //   firstTime = false;
+    // });
   }
 
   @override
   void dispose() {
     super.dispose();
-    _onConnectivityChanged.cancel();
-  }
-
-  void _route() {
-    Get.offNamed(RouteHelper.getSignInRoute(RouteHelper.splash));
   }
 
   @override
@@ -54,11 +49,6 @@ class SplashScreenState extends State<SplashScreen> {
         body: Container(
           padding: const EdgeInsets.all(25.0),
           constraints: const BoxConstraints.expand(),
-          decoration: BoxDecoration(
-              image: DecorationImage(
-                  image: AssetImage(Images.backgroundImage),
-                  fit: BoxFit.cover
-              )),
           child: Center(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -67,18 +57,36 @@ class SplashScreenState extends State<SplashScreen> {
                     Images.logo,
                     width: Dimensions.mainScreenLogoSize,
                   ),
-                  const Text(
-                      "We care for you!"
+                  AnimatedTextKit(
+                      isRepeatingAnimation: false,
+                      animatedTexts: [
+                        TyperAnimatedText("We care for you!",
+                            textStyle: const TextStyle(
+                              fontSize: 16,
+                            ),
+                            speed: const Duration(milliseconds: 100)),
+                      ]
                   ),
-                  const SizedBox(height: Dimensions.paddingSizeExtraSmall),
-                  const Text(
-                      "نحن نهتم بك!"
+                  AnimatedTextKit(
+                      isRepeatingAnimation: false,
+                      animatedTexts: [
+                        TyperAnimatedText("نحن نهتم بك!",
+                            textStyle: const TextStyle(
+                              fontSize: 16,
+                            ),
+                            speed: const Duration(milliseconds: 100)),
+                      ]
                   ),
-                  const SizedBox(height: Dimensions.paddingSizeLarge),
                 ],
               )
           ),
         )
     );
+  }
+
+  _navigateTo() async {
+    Timer(const Duration(milliseconds: 3000), () async {
+        Get.offAll(() => const BottomNavigation(), transition: Transition.rightToLeft, popGesture: true);
+    });
   }
 }

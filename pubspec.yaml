@@ -12,7 +12,7 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   get: ^4.6.5
-  connectivity_plus: ^4.0.2 #check internet connection
+  animated_text_kit: ^4.2.1
   shared_preferences: ^2.2.0
 
 dev_dependencies:
@@ -25,18 +25,18 @@ flutter:
 
   assets:
     - assets/images/
-    - assets/language/
+    - assets/languages/
     - assets/map/
     - assets/
 
   fonts:
     - family: Ubuntu
       fonts:
-        - asset: assets/font/Ubuntu-Light.ttf
+        - asset: assets/fonts/Ubuntu-Light.ttf
           weight: 300
-        - asset: assets/font/Ubuntu-Regular.ttf
+        - asset: assets/fonts/Ubuntu-Regular.ttf
           weight: 400
-        - asset: assets/font/Ubuntu-Medium.ttf
+        - asset: assets/fonts/Ubuntu-Medium.ttf
           weight: 500
-        - asset: assets/font/Ubuntu-Bold.ttf
+        - asset: assets/fonts/Ubuntu-Bold.ttf
           weight: 700
