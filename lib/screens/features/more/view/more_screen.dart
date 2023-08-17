@@ -45,7 +45,7 @@ class _MoreState extends State<More> {
                 ),
                 InkWell(
                   onTap: () {
-                    Get.offAll(const Login(), transition: Transition.downToUp, popGesture: true);
+                    Get.to(() => const Login());
                   },
                   child: Container(
                     margin: const EdgeInsets.all(10.0),
@@ -91,20 +91,141 @@ class _MoreState extends State<More> {
                                   height: 1,
                                 ),
                                 Padding(
-                                    padding: const EdgeInsets.all(5.0),
-                                    child: ListTile(
-                                      leading: Image.asset(Images.languageIcon),
-                                      title: const Text("Language"),
-                                      trailing: const Icon(Icons.arrow_forward_ios),
-                                      onTap: () {
-                                       // Get.to(());
-                                      },
-                                    ),
+                                  padding: const EdgeInsets.all(5.0),
+                                  child: ListTile(
+                                    leading: Image.asset(Images.language, width: Dimensions.paddingSizeExtraMore, height: Dimensions.paddingSizeExtraMore,),
+                                    title: const Text("Language"),
+                                    trailing: const Icon(Icons.arrow_forward_ios),
+                                    onTap: () {
+                                      // Get.to(());
+                                    },
+                                  ),
                                 )
                               ],
                             )
                         ),
-                      ]),
+                        const SizedBox(
+                          height: Dimensions.paddingSizeLarge,
+                        ),
+                        Container(
+                            height: 250,
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                              color: Colors.white,
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Padding(padding: EdgeInsets.all(10.0),
+                                  child: Text("More",
+                                    style: TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                const Divider(
+                                  height: 1,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: ListTile(
+                                    leading: Image.asset(Images.info, width: Dimensions.paddingSizeExtraMore, height: Dimensions.paddingSizeExtraMore,),
+                                    title: const Text("About Us"),
+                                    trailing: const Icon(Icons.arrow_forward_ios),
+                                    onTap: () {
+                                      // Get.to(());
+                                    },
+                                  ),
+                                ),
+                                const Divider(
+                                  height: 1,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: ListTile(
+                                    leading: Image.asset(Images.terms, width: Dimensions.paddingSizeExtraMore, height: Dimensions.paddingSizeExtraMore,),
+                                    title: const Text("Terms and Conditions"),
+                                    trailing: const Icon(Icons.arrow_forward_ios),
+                                    onTap: () {
+                                      // Get.to(());
+                                    },
+                                  ),
+                                ),
+                                const Divider(
+                                  height: 1,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: ListTile(
+                                    leading: Image.asset(Images.privacy, width: Dimensions.paddingSizeExtraMore, height: Dimensions.paddingSizeExtraMore,),
+                                    title: const Text("Privacy Policy"),
+                                    trailing: const Icon(Icons.arrow_forward_ios),
+                                    onTap: () {
+                                      // Get.to(());
+                                    },
+                                  ),
+                                )
+                              ],
+                            )
+                        ),
+                        const SizedBox(
+                          height: Dimensions.paddingSizeLarge,
+                        ),
+                        Container(
+                            height: 165,
+                            width: MediaQuery.of(context).size.width,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                              color: Colors.white,
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Padding(padding: EdgeInsets.all(10.0),
+                                  child: Text("Contact",
+                                    style: TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ),
+                                const Divider(
+                                  height: 1,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: ListTile(
+                                    leading: Image.asset(Images.contact, width: Dimensions.paddingSizeExtraMore, height: Dimensions.paddingSizeExtraMore,),
+                                    title: const Text("Contact Us"),
+                                    trailing: const Icon(Icons.arrow_forward_ios),
+                                    onTap: () {
+                                      // Get.to(());
+                                    },
+                                  ),
+                                ),
+                                const Divider(
+                                  height: 1,
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(2.0),
+                                  child: ListTile(
+                                    leading: Image.asset(Images.media, width: Dimensions.paddingSizeExtraMore, height: Dimensions.paddingSizeExtraMore,),
+                                    title: const Text("Our Social Media"),
+                                    trailing: const Icon(Icons.arrow_forward_ios),
+                                    onTap: () {
+                                      // Get.to(());
+                                    },
+                                  ),
+                                )
+                              ],
+                            )
+                        ),
+                      ]
+                  ),
                 )
               ],
             ),

@@ -2,7 +2,11 @@ class Images {
   static String get logo => 'logo'.png;
   static String get us => 'us'.png;
   static String get arabicTwo => 'arabic_two'.png;
-  static String get languageIcon => 'language_icon'.png;
+  static String get contact => 'contact'.png;
+  static String get info => 'info'.png;
+  static String get media => 'media'.png;
+  static String get privacy => 'privacy'.png;
+  static String get terms => 't&c'.png;
   static String get language => 'language'.png;
   static String get translate => 'select_language'.png;
   static String get selectedLanguage=> 'selected_language'.png;

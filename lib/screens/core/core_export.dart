@@ -3,6 +3,7 @@ export 'dart:io';
 export 'package:flutter/material.dart';
 export 'package:flutter/services.dart';
 export 'dart:typed_data';
+export 'package:intl_phone_field/intl_phone_field.dart';
 export 'package:get/get_connect/http/src/request/request.dart';
 export 'package:flutter/foundation.dart';
 export 'package:flutter/gestures.dart';
