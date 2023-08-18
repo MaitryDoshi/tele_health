@@ -20,6 +20,8 @@ export 'package:tele_health/screens/core/theme/light_theme.dart';
 export 'package:tele_health/screens/controller/theme_controller.dart';
 export 'package:tele_health/screens/controller/localization_controller.dart';
 export 'package:tele_health/screens/features/login/view/login_screen.dart';
+export 'package:tele_health/screens/features/registration/view/registration_screen.dart';
+export 'package:tele_health/screens/features/verification/view/verification_screen.dart';
 export 'package:tele_health/screens/features/navigation/view/bottomnavigation.dart';
 export 'package:tele_health/screens/features/splash/view/splash_screen.dart';
 export 'package:tele_health/data/model/response/language_model.dart';

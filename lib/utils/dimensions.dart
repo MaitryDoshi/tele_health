@@ -16,7 +16,7 @@ class Dimensions {
   static const double paddingSizeDefault = 15.0;
   static const double paddingSizeLarge = 20.0;
   static const double paddingSizeExtraLarge = 25.0;
-  static const double paddingSizeExtraMore = 40.0;
+  static const double paddingSizeExtraMore = 30.0;
   static const double paddingForChattingButton = 60.0;
   static const double pagesBottomPadding = 100.0;
   static const double logoSize = 100.0;

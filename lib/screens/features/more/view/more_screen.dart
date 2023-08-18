@@ -41,25 +41,10 @@ class _MoreState extends State<More> {
                     )
                 ),
                 const SizedBox(
-                  height: Dimensions.paddingSizeMini,
-                ),
-                InkWell(
-                  onTap: () {
-                    Get.to(() => const Login());
-                  },
-                  child: Container(
-                    margin: const EdgeInsets.all(10.0),
-                    height: 50.0,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      border: Border.all(color: Colors.white, width: 2.0),
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: const Center(child: Text('Login or Register', style: TextStyle(fontSize: 18.0, color: Colors.blueAccent),),),
-                  ),
+                  height: Dimensions.paddingSizeSmall,
                 ),
                 Container(
-                  height: MediaQuery.of(context).size.height / 1.4,
+                  height: MediaQuery.of(context).size.height / 1.2,
                   width: MediaQuery.of(context).size.width,
                   padding: const EdgeInsets.only(left: 10.0, right: 10.0),
                   decoration: BoxDecoration(
@@ -69,7 +54,7 @@ class _MoreState extends State<More> {
                   child: Column(
                       children: [
                         Container(
-                            height: 110,
+                            height: 160,
                             width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10.0),
@@ -90,9 +75,7 @@ class _MoreState extends State<More> {
                                 const Divider(
                                   height: 1,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(5.0),
-                                  child: ListTile(
+                                  ListTile(
                                     leading: Image.asset(Images.language, width: Dimensions.paddingSizeExtraMore, height: Dimensions.paddingSizeExtraMore,),
                                     title: const Text("Language"),
                                     trailing: const Icon(Icons.arrow_forward_ios),
@@ -100,6 +83,16 @@ class _MoreState extends State<More> {
                                       // Get.to(());
                                     },
                                   ),
+                                const Divider(
+                                  height: 1,
+                                ),
+                                  ListTile(
+                                    leading: Image.asset(Images.profile, width: Dimensions.paddingSizeExtraMore, height: Dimensions.paddingSizeExtraMore,),
+                                    title: const Text("Profile"),
+                                    trailing: const Icon(Icons.arrow_forward_ios),
+                                    onTap: () {
+                                      // Get.to(());
+                                    },
                                 )
                               ],
                             )
@@ -108,7 +101,7 @@ class _MoreState extends State<More> {
                           height: Dimensions.paddingSizeLarge,
                         ),
                         Container(
-                            height: 250,
+                            height: 280,
                             width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(10.0),
@@ -129,9 +122,7 @@ class _MoreState extends State<More> {
                                 const Divider(
                                   height: 1,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(2.0),
-                                  child: ListTile(
+                                ListTile(
                                     leading: Image.asset(Images.info, width: Dimensions.paddingSizeExtraMore, height: Dimensions.paddingSizeExtraMore,),
                                     title: const Text("About Us"),
                                     trailing: const Icon(Icons.arrow_forward_ios),
@@ -139,34 +130,38 @@ class _MoreState extends State<More> {
                                       // Get.to(());
                                     },
                                   ),
-                                ),
                                 const Divider(
                                   height: 1,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(2.0),
-                                  child: ListTile(
+                                ListTile(
                                     leading: Image.asset(Images.terms, width: Dimensions.paddingSizeExtraMore, height: Dimensions.paddingSizeExtraMore,),
                                     title: const Text("Terms and Conditions"),
                                     trailing: const Icon(Icons.arrow_forward_ios),
                                     onTap: () {
                                       // Get.to(());
                                     },
-                                  ),
                                 ),
                                 const Divider(
                                   height: 1,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(2.0),
-                                  child: ListTile(
+                                ListTile(
                                     leading: Image.asset(Images.privacy, width: Dimensions.paddingSizeExtraMore, height: Dimensions.paddingSizeExtraMore,),
                                     title: const Text("Privacy Policy"),
                                     trailing: const Icon(Icons.arrow_forward_ios),
                                     onTap: () {
                                       // Get.to(());
                                     },
-                                  ),
+                                ),
+                                const Divider(
+                                  height: 1,
+                                ),
+                                ListTile(
+                                  leading: Image.asset(Images.signIn, width: Dimensions.paddingSizeExtraMore, height: Dimensions.paddingSizeExtraMore,),
+                                  title: const Text("Sign In"),
+                                  trailing: const Icon(Icons.arrow_forward_ios),
+                                  onTap: () {
+                                    Get.to(() => const Login());
+                                  },
                                 )
                               ],
                             )
@@ -196,9 +191,7 @@ class _MoreState extends State<More> {
                                 const Divider(
                                   height: 1,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(2.0),
-                                  child: ListTile(
+                                 ListTile(
                                     leading: Image.asset(Images.contact, width: Dimensions.paddingSizeExtraMore, height: Dimensions.paddingSizeExtraMore,),
                                     title: const Text("Contact Us"),
                                     trailing: const Icon(Icons.arrow_forward_ios),
@@ -206,20 +199,16 @@ class _MoreState extends State<More> {
                                       // Get.to(());
                                     },
                                   ),
-                                ),
                                 const Divider(
                                   height: 1,
                                 ),
-                                Padding(
-                                  padding: const EdgeInsets.all(2.0),
-                                  child: ListTile(
+                                ListTile(
                                     leading: Image.asset(Images.media, width: Dimensions.paddingSizeExtraMore, height: Dimensions.paddingSizeExtraMore,),
                                     title: const Text("Our Social Media"),
                                     trailing: const Icon(Icons.arrow_forward_ios),
                                     onTap: () {
                                       // Get.to(());
                                     },
-                                  ),
                                 )
                               ],
                             )

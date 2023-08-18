@@ -8,6 +8,8 @@ class Images {
   static String get privacy => 'privacy'.png;
   static String get terms => 't&c'.png;
   static String get language => 'language'.png;
+  static String get profile => 'profile'.png;
+  static String get signIn => 'signIn'.png;
   static String get translate => 'select_language'.png;
   static String get selectedLanguage=> 'selected_language'.png;
   static String get backgroundImage=> 'background_image'.png;

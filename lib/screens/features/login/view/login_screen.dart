@@ -9,12 +9,8 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  final FocusNode _phoneFocus = FocusNode();
-  final FocusNode _passwordFocus = FocusNode();
 
   final _phone = TextEditingController();
-
-  final bool _canExit = GetPlatform.isWeb ? true : false;
 
   final GlobalKey<FormState> customerSignInKey = GlobalKey<FormState>();
 
@@ -40,9 +36,8 @@ class _LoginState extends State<Login> {
               height: MediaQuery.of(context).size.height / 1.4,
               width: MediaQuery.of(context).size.width,
               padding: const EdgeInsets.only(left: 10.0, right: 10.0),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                color: const Color(0xFFEFF8FB),
+              decoration: const BoxDecoration(
+                color: Color(0xFFEFF8FB),
               ),
               child: Column(
                   children: [
@@ -140,7 +135,7 @@ class _LoginState extends State<Login> {
   Widget submit() {
     return InkWell(
       onTap: () {
-        Get.to(() => const Login());
+        Get.to(() => const Registration());
       },
       child: Container(
         margin: const EdgeInsets.all(10.0),
