@@ -10,11 +10,13 @@ dependencies:
   flutter:
     sdk: flutter
 
+  intl: ^0.18.1
   cupertino_icons: ^1.0.2
   get: ^4.6.5
   animated_text_kit: ^4.2.1
   shared_preferences: ^2.2.0
   intl_phone_field: ^3.2.0
+  local_captcha: ^1.0.1
 
 dev_dependencies:
   flutter_test:

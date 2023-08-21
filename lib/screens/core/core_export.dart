@@ -30,3 +30,4 @@ export 'package:tele_health/screens/features/appointment/view/appointment_screen
 export 'package:tele_health/screens/features/more/view/more_screen.dart';
 export 'package:tele_health/screens/features/service/view/service_screen.dart';
 export 'package:tele_health/screens/features/patientrecord/view/patientrecord_screen.dart';
+export 'package:local_captcha/local_captcha.dart';
