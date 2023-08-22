@@ -21,6 +21,7 @@ class _RegistrationState extends State<Registration> {
   String selectedValue1 = '';
 
   int _currentStep = 0;
+  bool _curStep = false;
   StepperType stepperType = StepperType.horizontal;
   final _captchaFormKey = GlobalKey<FormState>();
   final _localCaptchaController = LocalCaptchaController();
@@ -66,8 +67,9 @@ class _RegistrationState extends State<Registration> {
                       physics: const ScrollPhysics(),
                       currentStep: _currentStep,
                       onStepTapped: (step) => tapped(step),
-                      onStepContinue:  continued,
+                      onStepContinue: continued,
                       onStepCancel: cancel,
+                      controlsBuilder: controlsBuilder,
                       steps: <Step>[
                         Step(
                           title: const Text('Step 1'),
@@ -182,40 +184,12 @@ class _RegistrationState extends State<Registration> {
                                     caseSensitive: _configFormData.caseSensitive,
                                     codeExpireAfter: _configFormData.codeExpireAfter,
                                   ),
-                                  Container(
+                                  SizedBox(
                                     height: 40,
                                     width: 40,
-                                    child: IconButton(onPressed: () { _localCaptchaController.refresh();}, icon: Icon(Icons.refresh_outlined, size: 30,)),
+                                    child: IconButton(onPressed: () { _localCaptchaController.refresh();}, icon: const Icon(Icons.refresh_outlined, size: 30,)),
                                   ),
                                 ],
-                              ),
-                              const SizedBox(height: 16.0),
-                              SizedBox(
-                                height: 40.0,
-                                width: double.infinity,
-                                child: ElevatedButton(
-                                  onPressed: () {
-                                    if (_captchaFormKey.currentState!.validate()) {
-                                      _captchaFormKey.currentState!.save();
-
-                                      showDialog(
-                                        context: context,
-                                        builder: (context) {
-                                          return AlertDialog(
-                                            title: Text('Code: "$_inputCode" is valid.'),
-                                            actions: [
-                                              TextButton(
-                                                onPressed: () => Navigator.of(context).pop(),
-                                                child: const Text('OK'),
-                                              ),
-                                            ],
-                                          );
-                                        },
-                                      );
-                                    }
-                                  },
-                                  child: const Text('Validate Code'),
-                                ),
                               ),
                             ],
                           ),
@@ -248,11 +222,35 @@ class _RegistrationState extends State<Registration> {
 
   continued(){
     _currentStep < 2 ?
-    setState(() => _currentStep += 1): null;
+    setState(() {
+      _currentStep += 1;
+      if(_currentStep == 2){
+        _curStep = true;
+      }
+    }): null;
   }
+
   cancel(){
     _currentStep > 0 ?
     setState(() => _currentStep -= 1) : null;
+  }
+
+  Widget controlsBuilder(context, details){
+    return Row(
+      children: [
+        ElevatedButton(
+            onPressed: _currentStep < 2
+                ? details.onStepContinue
+                : _curStep == true ? Get.to(() => const OtpGen()) : null,
+          child: Text((_currentStep < 2) ? "Continue" : "Confirm")),
+        const SizedBox(width: 10,),
+        _currentStep != 0
+            ? ElevatedButton(
+            onPressed: details.onStepCancel,
+            child: const Text("Back"))
+            : Container(),
+      ],
+    );
   }
 
   Future<void> datepicker(TextEditingController con) async {
@@ -270,10 +268,6 @@ class _RegistrationState extends State<Registration> {
       });
     } else {
     }
-  }
-
-  navScreen() {
-    Get.to(() => const Verification());
   }
 }
 
