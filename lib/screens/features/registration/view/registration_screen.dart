@@ -21,7 +21,7 @@ class _RegistrationState extends State<Registration> {
   String selectedValue1 = '';
 
   int _currentStep = 0;
-  bool _curStep = false;
+  bool isConfirmed = false;
   StepperType stepperType = StepperType.horizontal;
   final _captchaFormKey = GlobalKey<FormState>();
   final _localCaptchaController = LocalCaptchaController();
@@ -221,13 +221,20 @@ class _RegistrationState extends State<Registration> {
   }
 
   continued(){
-    _currentStep < 2 ?
-    setState(() {
-      _currentStep += 1;
-      if(_currentStep == 2){
-        _curStep = true;
+    if(_currentStep == 2){
+      if (_captchaFormKey.currentState!.validate()) {
+        _captchaFormKey.currentState!.save();
+        isConfirmed = true;
+        Future.delayed(const Duration(seconds: 1), (){
+          Get.to(() => const OtpGen());
+        });
       }
-    }): null;
+    }
+    else{
+      setState(() {
+        _currentStep += 1;
+        });
+    }
   }
 
   cancel(){
@@ -239,10 +246,12 @@ class _RegistrationState extends State<Registration> {
     return Row(
       children: [
         ElevatedButton(
-            onPressed: _currentStep < 2
-                ? details.onStepContinue
-                : _curStep == true ? Get.to(() => const OtpGen()) : null,
-          child: Text((_currentStep < 2) ? "Continue" : "Confirm")),
+            onPressed: details.onStepContinue,
+          child: _currentStep == 2
+              ? isConfirmed
+                ? const Text("Confirm")
+                : const Text("Confirm")
+              : const Text("Continue")),
         const SizedBox(width: 10,),
         _currentStep != 0
             ? ElevatedButton(

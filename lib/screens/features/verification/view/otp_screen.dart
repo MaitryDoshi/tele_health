@@ -185,7 +185,7 @@ class OtpGenState extends State<OtpGen> {
               },
               child: const Text(
                 "SUBMIT",
-                style: TextStyle(fontFamily: 'Sfpro', fontSize: 14),
+                style: TextStyle(fontFamily: 'Sfpro', fontSize: 14, color: Colors.white),
               ),
             ),
           ),
